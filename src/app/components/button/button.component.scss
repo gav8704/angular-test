@@ -1,0 +1,45 @@
+@import "../../styles/utilities/colors.scss";
+@import "./styles/variables.scss";
+@import "../../styles/utilities/variables.scss";
+
+.nc-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 64px;
+  padding: $btn-padding-vertical $btn-padding-horizontal;
+  border: none;
+  outline: none;
+  border-radius: $btn-border-radius;
+  overflow: visible;
+  vertical-align: middle;
+  color: $white;
+  cursor: pointer;
+  transition: background $transition-duration-base;
+}
+
+.nc-btn-primary {
+  background: $primary;
+
+  &:hover {
+    background: $primary-hover;
+  }
+
+  &:active {
+    background: $primary-active;
+  }
+}
+
+.nc-btn-dangerous {
+  background: $dangerous;
+
+  &:hover {
+    background: $dangerous-hover;
+  }
+
+  &:active {
+    background: $dangerous-active;
+  }
+}
