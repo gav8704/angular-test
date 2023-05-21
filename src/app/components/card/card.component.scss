@@ -1,0 +1,28 @@
+@import "../../styles/utilities/colors.scss";
+@import "../../styles/utilities/variables.scss";
+@import "../../styles/base/shared.scss";
+
+@import "./styles/variables.scss";
+
+.nc-card-container {
+  height: $card-height;
+  border: 1px solid $grey-dark;
+  border-radius: $border-radius-base;
+  overflow: hidden;
+}
+
+.nc-card__header {
+  padding: $card-header-padding;
+  text-align: center;
+
+  h3 {
+    @extend .ellipsis;
+    font-size: $card-header-size;
+    font-weight: bold;
+  }
+}
+
+.nc-card__body {
+  padding: $card-body-padding;
+  font-size: $card-body-size;
+}

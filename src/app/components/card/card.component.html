@@ -1,0 +1,13 @@
+<div class="nc-card-container">
+  <!-- Header -->
+  <ng-container *ngIf="ncTitle">
+    <div class="nc-card__header">
+      <h3>{{ ncTitle }}</h3>
+    </div>
+  </ng-container>
+
+  <!-- Body -->
+  <div class="nc-card__body">
+    <ng-content></ng-content>
+  </div>
+</div>
