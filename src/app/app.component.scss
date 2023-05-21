@@ -1,4 +1,9 @@
+@import "./styles/utilities/colors.scss";
+
 .wrapper {
   max-width: 800px;
   margin: 0 auto;
+  height: 100vh;
+  padding: 15px 20px;
+  background: $grey-light;
 }

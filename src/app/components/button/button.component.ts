@@ -1,6 +1,6 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
-type ncButtonType = 'primary' | 'dangerous';
+type ncButtonType = 'primary' | 'dangerous' | 'link';
 
 @Component({
   selector: 'button[nc-button]',
@@ -11,6 +11,7 @@ type ncButtonType = 'primary' | 'dangerous';
     class: 'nc-btn',
     '[class.nc-btn-primary]': `ncType === 'primary'`,
     '[class.nc-btn-dangerous]': `ncType === 'dangerous'`,
+    '[class.nc-btn-link]': `ncType === 'link'`,
     '[class.nc-btn-loading]': `ncLoading`,
   },
 })

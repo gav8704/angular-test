@@ -43,3 +43,16 @@
     background: $dangerous-active;
   }
 }
+
+.nc-btn-link {
+  background: $white;
+  color: $black;
+
+  &:hover {
+    background: $grey-light;
+  }
+
+  &:active {
+    background: $grey-dark;
+  }
+}
