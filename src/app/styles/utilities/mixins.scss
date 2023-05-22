@@ -24,3 +24,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+@mixin ellipsis-multiline($countLine) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $countLine;
+  white-space: pre-wrap;
+}

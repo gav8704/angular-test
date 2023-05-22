@@ -8,6 +8,9 @@
 
   <!-- Body -->
   <div class="nc-card__body">
-    <ng-content></ng-content>
+    <!-- Needed for ellipsis -->
+    <div class="nc-card__body-inner">
+      <ng-content></ng-content>
+    </div>
   </div>
 </div>

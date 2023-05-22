@@ -6,8 +6,6 @@
 
 .nc-card-container {
   @extend .flex-column;
-
-  height: $card-height;
   border: 1px solid $grey-dark;
   border-radius: $border-radius-base;
   overflow: hidden;
@@ -26,6 +24,10 @@
   border-bottom: 1px solid $grey-dark;
   font-size: $card-header-size;
   font-weight: bold;
+
+  & > * {
+    @include ellipsis;
+  }
 }
 
 .nc-card__body {
@@ -33,4 +35,8 @@
   position: relative;
   padding: $card-body-padding;
   font-size: $card-body-size;
+}
+
+.nc-card__body-inner {
+  @include ellipsis-multiline(3);
 }
