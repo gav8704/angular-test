@@ -1,6 +1,10 @@
 /* Utilities */
 @import "./app/styles/utilities/variables.scss",
-  "./app/styles/utilities/colors.scss";
+  "./app/styles/utilities/colors.scss", "./app/styles/utilities/mixins.scss";
 
 /* Base */
 @import "./app/styles/base/reset.scss", "./app/styles/base/shared.scss";
+
+body {
+  background: $grey-light;
+}
