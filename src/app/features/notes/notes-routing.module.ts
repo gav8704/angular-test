@@ -8,7 +8,7 @@ import { notesResolver } from './notes.resolver';
 
 const routes: Routes = [
   {
-    path: 'notes',
+    path: '',
     component: NotesDisplayComponent,
     resolve: {
       notes: notesResolver,

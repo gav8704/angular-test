@@ -7,6 +7,11 @@ const routes: Routes = [
     redirectTo: '/notes',
     pathMatch: 'full',
   },
+  {
+    path: 'notes',
+    loadChildren: () =>
+      import('./features/notes/notes.module').then((m) => m.NotesModule),
+  },
 ];
 
 @NgModule({
