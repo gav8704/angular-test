@@ -5,7 +5,7 @@ import { NotesActions } from './notes.actions';
 export const initialState: NoteState = {
   entities: [],
   searchValue: null,
-  sortBy: 'asc',
+  sortBy: 'desc',
 };
 
 export const notesReducer = createReducer(
@@ -30,9 +30,9 @@ export const notesReducer = createReducer(
       return entity;
     }),
   })),
-  on(NotesActions.retrievedNotes, (state, notes) => ({
+  on(NotesActions.retrievedNotes, (state, { noteList }) => ({
     ...state,
-    entities: notes,
+    entities: noteList,
   })),
 
   // Search value

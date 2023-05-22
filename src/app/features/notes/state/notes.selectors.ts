@@ -2,6 +2,23 @@ import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { Note, NoteState } from '../models';
 import { sortByDate } from '../../../helpers';
 
+// const defVal: Note[] = [
+//   {
+//     id: '1',
+//     title: 'title - 1',
+//     description: 'description - 1',
+//     date: 'Mon May 22 2023 00:59:37 GMT+0300 (Москва, стандартное время)',
+//   },
+//   {
+//     id: '2',
+//     title: 'title - 2',
+//     description: 'description - 2',
+//     date: 'Mon May 22 2023 00:59:51 GMT+0300 (Москва, стандартное время)',
+//   },
+// ];
+
+// localStorage.setItem('noteList', JSON.stringify(defVal));
+
 export const featureKey = 'notes';
 export const selectNotes = createFeatureSelector<NoteState>(featureKey);
 
@@ -38,6 +55,7 @@ export const selectFilteredAndSortedNotes = createSelector(
     const sortedByDateNoteList = filteredBySearchValueNoteList.sort((a, b) =>
       sortByDate(new Date(a.date), new Date(b.date), sortType)
     );
+    console.log('sortedByDateNoteList', sortedByDateNoteList);
 
     return sortedByDateNoteList;
   }
