@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { RoutingService } from '../../../../services/routing.service';
+import { Store } from '@ngrx/store';
+import { selectSearchValue } from '../../state/notes.selectors';
+import { NotesActions } from '../../state/notes.actions';
 
 @Component({
   selector: 'app-notes-toolbar',
@@ -7,9 +10,19 @@ import { RoutingService } from '../../../../services/routing.service';
   styleUrls: ['./notes-toolbar.component.scss'],
 })
 export class NotesToolbarComponent {
-  constructor(private readonly routingService: RoutingService) {}
+  searchValue$ = this.store.select(selectSearchValue);
 
-  createNote(): void {
+  constructor(
+    private readonly routingService: RoutingService,
+    private readonly store: Store
+  ) {}
+
+  handleCreateNoteClick(): void {
     this.routingService.goToNoteCreator();
+  }
+
+  handleSearchInputChange(e: KeyboardEvent): void {
+    const searchValue = (e.target as HTMLInputElement).value;
+    this.store.dispatch(NotesActions.setSearchValue({ searchValue }));
   }
 }

@@ -46,16 +46,21 @@ export const selectFilteredAndSortedNotes = createSelector(
   selectSearchValue,
   selectSortType,
   (noteList, searchValue, sortType) => {
+    const trimmedSearchValue = searchValue?.trim();
+
     // Filtering by search value
-    const filteredBySearchValueNoteList = searchValue
-      ? noteList.filter((note) => note.title.includes(searchValue))
+    const filteredBySearchValueNoteList = trimmedSearchValue
+      ? noteList.filter(
+          (note) =>
+            note.title.includes(trimmedSearchValue) ||
+            note.description.includes(trimmedSearchValue)
+        )
       : [...noteList];
 
     // Sorting by sort type (asc or desc)
     const sortedByDateNoteList = filteredBySearchValueNoteList.sort((a, b) =>
       sortByDate(new Date(a.date), new Date(b.date), sortType)
     );
-    console.log('sortedByDateNoteList', sortedByDateNoteList);
 
     return sortedByDateNoteList;
   }
