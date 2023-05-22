@@ -1,1 +1,45 @@
-<p>note-editor works!</p>
+<div *ngIf="note$ | async as note" class="note-editor">
+  <ng-container *ngIf="isEditMode$ | async; else readMode">
+    <div
+      class="flex-row flex-justify-end"
+      style="column-gap: 15px; margin-bottom: 20px"
+    >
+      <button (click)="handleSaveNote()" [disabled]="!isFormValid" nc-button>
+        Сохранить
+      </button>
+      <button (click)="handleCancel()" nc-button ncType="link">Отменить</button>
+    </div>
+    <div>
+      <form [formGroup]="noteForm">
+        <div class="form-item">
+          <input formControlName="title" id="title" type="text" />
+        </div>
+
+        <div class="form-item">
+          <textarea
+            formControlName="description"
+            name="description"
+            id="description"
+            rows="10"
+          ></textarea>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+
+  <ng-template #readMode>
+    <div
+      class="flex-row flex-justify-end"
+      style="column-gap: 15px; margin-bottom: 20px"
+    >
+      <button (click)="handleEdit()" nc-button>Редактировать</button>
+      <button (click)="handleDeleteNote(note.id)" nc-button ncType="dangerous">
+        Удалить
+      </button>
+    </div>
+    <div>
+      <h3 class="note-editor__header">{{ note?.title }}</h3>
+      <div class="note-editor__body">{{ note?.description }}</div>
+    </div>
+  </ng-template>
+</div>

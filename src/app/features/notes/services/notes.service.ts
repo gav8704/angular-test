@@ -28,9 +28,23 @@ export class NotesService {
     );
   }
 
+  /** Adding the note */
   addNote(note: Note): void {
     this.localStorageService.addItem<Note>(notesStorageKey, note);
     this.store.dispatch(NotesActions.addNote({ note }));
     this.routingService.goToNoteEditor(note.id);
+  }
+
+  /** Updating the note */
+  updateNote(note: Note): void {
+    this.localStorageService.updateItem(notesStorageKey, note);
+    this.store.dispatch(NotesActions.updateNote({ note }));
+  }
+
+  /** Removal the note */
+  removeNote(noteId: Note['id']) {
+    this.localStorageService.removeItem(noteId, notesStorageKey);
+    this.store.dispatch(NotesActions.removeNote({ noteId }));
+    this.routingService.goToNoteCreator();
   }
 }

@@ -20,23 +20,31 @@ import { sortByDate } from '../../../helpers';
 // localStorage.setItem('noteList', JSON.stringify(defVal));
 
 export const featureKey = 'notes';
-export const selectNotes = createFeatureSelector<NoteState>(featureKey);
+export const selectNotesFeature = createFeatureSelector<NoteState>(featureKey);
 
 /** Note list */
 export const selectNoteList = createSelector(
-  selectNotes,
+  selectNotesFeature,
   (state) => state.entities
 );
 
+/** Note By ID */
+export const selectNoteById = (noteId: Note['id']) =>
+  createSelector(selectNoteList, (noteList) =>
+    noteList.find((entity) => entity.id === noteId)
+  );
+
+// export const selectNoteById = () => createSelector(selectNoteList, (noteList, props) => )
+
 /** Search value */
 export const selectSearchValue = createSelector(
-  selectNotes,
+  selectNotesFeature,
   (state) => state.searchValue
 );
 
 /** Sort type */
 export const selectSortType = createSelector(
-  selectNotes,
+  selectNotesFeature,
   (state) => state.sortBy
 );
 

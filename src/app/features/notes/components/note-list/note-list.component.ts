@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import {
-  selectFilteredAndSortedNotes,
-  selectNotes,
-} from '../../state/notes.selectors';
+import { selectFilteredAndSortedNotes } from '../../state/notes.selectors';
 import { RoutingService } from '../../../../services/routing.service';
 import { Note } from '../../models';
 

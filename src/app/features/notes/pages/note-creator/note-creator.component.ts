@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { isEmptyString } from '../../../../helpers';
-import { Note } from '../../models';
+import { Note, NoteForm } from '../../models';
 import { NotesService } from '../../services/notes.service';
-
-interface CreateNoteForm {
-  title: string;
-  description: string;
-}
-
-const notEmptyStringRegExp = /^(\s+\S+\s*)*(?!\s).*$/;
+import { notEmptyStringRegExp } from '../../../../constants/validators-patterns';
 
 @Component({
   selector: 'app-note-creator',
@@ -17,7 +11,7 @@ const notEmptyStringRegExp = /^(\s+\S+\s*)*(?!\s).*$/;
   styleUrls: ['./note-creator.component.scss'],
 })
 export class NoteCreatorComponent implements OnInit {
-  createNoteForm!: FormGroup;
+  noteForm!: FormGroup;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -28,16 +22,16 @@ export class NoteCreatorComponent implements OnInit {
     this.initForm();
   }
 
-  get title(): CreateNoteForm['title'] {
-    return (this.createNoteForm.value as CreateNoteForm).title;
+  get title(): NoteForm['title'] {
+    return (this.noteForm.value as NoteForm).title;
   }
 
-  get description(): CreateNoteForm['description'] {
-    return (this.createNoteForm.value as CreateNoteForm).description;
+  get description(): NoteForm['description'] {
+    return (this.noteForm.value as NoteForm).description;
   }
 
   get isFormValid(): boolean {
-    return this.createNoteForm.valid;
+    return this.noteForm.valid;
   }
 
   createNote(): void {
@@ -53,7 +47,7 @@ export class NoteCreatorComponent implements OnInit {
   }
 
   initForm(): void {
-    this.createNoteForm = this.fb.group({
+    this.noteForm = this.fb.group({
       title: [
         '',
         [Validators.required, Validators.pattern(notEmptyStringRegExp)],

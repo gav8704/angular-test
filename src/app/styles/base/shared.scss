@@ -1,3 +1,5 @@
+@import "../utilities/mixins.scss";
+
 /*
   Общие классы для всего приложения
 */
@@ -19,8 +21,37 @@
   flex-direction: column;
 }
 
+.flex-justify-end {
+  justify-content: right;
+}
+
 .ellipsis {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.form-item {
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input,
+  textarea {
+    @include input-base;
+    width: 100%;
+  }
+
+  textarea {
+    resize: none;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
 }

@@ -20,7 +20,7 @@ export const notesReducer = createReducer(
     ...state,
     entities: state.entities.filter((note) => note.id !== noteId),
   })),
-  on(NotesActions.changeNote, (state, note) => ({
+  on(NotesActions.updateNote, (state, { note }) => ({
     ...state,
     entities: state.entities.map((entity) => {
       if (entity.id === note.id) {
