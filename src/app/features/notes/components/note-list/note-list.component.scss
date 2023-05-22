@@ -1,3 +1,32 @@
+@import "../../../../styles/utilities/mixins.scss";
+@import "../../../../styles/utilities/variables.scss";
+
 .notes-list {
   row-gap: 15px;
+}
+
+.note-card__title {
+  @include ellipsis;
+}
+
+.note-card__button-layer {
+  display: flex;
+  justify-content: end;
+  align-items: start;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  button {
+    opacity: 0;
+    transition: $transition-duration-base;
+  }
+
+  &:hover {
+    button {
+      opacity: 1;
+    }
+  }
 }

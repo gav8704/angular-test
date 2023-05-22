@@ -25,12 +25,6 @@
   justify-content: right;
 }
 
-.ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .form-item {
   &:not(:last-child) {
     margin-bottom: 15px;

@@ -1,10 +1,21 @@
-<div class="notes-container">
-  <aside class="notes-aside flex-column">
-    <app-notes-toolbar></app-notes-toolbar>
-    <app-note-list style="overflow: auto"></app-note-list>
-  </aside>
-  <section class="notes-main">
-    <!-- Creator or Editor -->
-    <router-outlet></router-outlet>
-  </section>
+<div
+  class="notes-container"
+  [ngClass]="{ 'notes-container__collapsed': isAsideCollapsed }"
+>
+  <div class="notes-header">
+    <button (click)="toogleAside()" nc-button>
+      {{ isAsideCollapsed ? "expand" : "collapse" }}
+    </button>
+  </div>
+
+  <div class="notes-inner">
+    <aside class="notes-aside">
+      <app-notes-toolbar></app-notes-toolbar>
+      <app-note-list style="overflow: auto"></app-note-list>
+    </aside>
+    <section class="notes-main">
+      <!-- Creator or Editor -->
+      <router-outlet></router-outlet>
+    </section>
+  </div>
 </div>

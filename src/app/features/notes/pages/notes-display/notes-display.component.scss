@@ -3,27 +3,75 @@
 @import "../../../../styles/base/shared.scss";
 
 .notes-container {
-  @extend .flex-row;
+  @extend .flex-column;
   @extend .w-100;
   @extend .h-100;
+  row-gap: 10px;
+}
 
+.notes-container__collapsed {
+  .notes-aside {
+    max-width: 0;
+    padding: 0;
+    opacity: 0;
+  }
+
+  .notes-inner {
+    column-gap: 0;
+  }
+}
+
+.notes-header {
+  padding: 20px;
+  background: $white;
+  border-radius: $border-radius-base;
+}
+
+.notes-inner {
+  @extend .flex-row;
+  flex-grow: 1;
   column-gap: 20px;
+  background: $grey-light;
 }
 
 .notes-aside {
+  @extend .flex-column;
+  position: relative;
   flex: 30% 0 0;
   max-width: 300px;
+  padding: 15px;
+  padding-top: 40px;
   row-gap: 50px;
   overflow: hidden;
+  transition: $transition-duration-base;
+  opacity: 1;
+
+  // &__collapsed {
+  //   max-width: 0;
+  //   padding: 0;
+  //   opacity: 0;
+
+  //   .notes-inner {
+  //     column-gap: 0;
+  //   }
+  // }
+}
+
+.notes-aside-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .notes-main {
   flex-grow: 1;
+  padding: 15px;
 }
 
 .notes-aside,
 .notes-main {
   background: $white;
-  padding: 15px;
   border-radius: $border-radius-base;
 }

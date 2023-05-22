@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { selectFilteredAndSortedNotes } from '../../state/notes.selectors';
 import { RoutingService } from '../../../../services/routing.service';
 import { Note } from '../../models';
+import { NotesService } from '../../services/notes.service';
 
 @Component({
   selector: 'app-note-list',
@@ -15,10 +16,15 @@ export class NoteListComponent {
 
   constructor(
     private readonly store: Store,
-    private readonly routingService: RoutingService
+    private readonly routingService: RoutingService,
+    private readonly notesService: NotesService
   ) {}
 
-  editNote(noteId: Note['id']) {
+  handleEditNote(noteId: Note['id']): void {
     this.routingService.goToNoteEditor(noteId);
+  }
+
+  handleRemoveNote(noteId: Note['id']): void {
+    this.notesService.removeNote(noteId);
   }
 }

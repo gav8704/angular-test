@@ -1,10 +1,12 @@
 @import "../../styles/utilities/colors.scss";
 @import "../../styles/utilities/variables.scss";
 @import "../../styles/base/shared.scss";
-
+@import "../../styles/utilities/mixins.scss";
 @import "./styles/variables.scss";
 
 .nc-card-container {
+  @extend .flex-column;
+
   height: $card-height;
   border: 1px solid $grey-dark;
   border-radius: $border-radius-base;
@@ -22,15 +24,13 @@
   padding: $card-header-padding;
   text-align: center;
   border-bottom: 1px solid $grey-dark;
-
-  h3 {
-    @extend .ellipsis;
-    font-size: $card-header-size;
-    font-weight: bold;
-  }
+  font-size: $card-header-size;
+  font-weight: bold;
 }
 
 .nc-card__body {
+  flex-grow: 1;
+  position: relative;
   padding: $card-body-padding;
   font-size: $card-body-size;
 }

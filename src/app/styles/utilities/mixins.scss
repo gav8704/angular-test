@@ -18,3 +18,9 @@
     border-color: $dangerous-active;
   }
 }
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

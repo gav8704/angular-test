@@ -1,7 +1,16 @@
 <div class="notes-list flex-column">
   <ng-container *ngFor="let note of noteList$ | async">
-    <nc-card (click)="editNote(note.id)" [ncTitle]="note.title">
+    <nc-card (click)="handleEditNote(note.id)" [ncTitle]="note.title">
       {{ note.description }}
+      <div class="note-card__button-layer">
+        <button
+          (click)="handleRemoveNote(note.id)"
+          nc-button
+          ncType="dangerous"
+        >
+          Del
+        </button>
+      </div>
     </nc-card>
   </ng-container>
 </div>
