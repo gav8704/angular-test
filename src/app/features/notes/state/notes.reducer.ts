@@ -12,7 +12,7 @@ export const notesReducer = createReducer(
   initialState,
 
   // Entities
-  on(NotesActions.addNote, (state, note) => ({
+  on(NotesActions.addNote, (state, { note }) => ({
     ...state,
     entities: [...state.entities, note],
   })),

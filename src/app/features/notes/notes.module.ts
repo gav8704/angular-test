@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotesRoutingModule } from './notes-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { NotesDisplayComponent } from './pages/notes-display/notes-display.component';
 import { NoteListComponent } from './components/note-list/note-list.component';
@@ -21,7 +22,13 @@ import { NotesService } from './services/notes.service';
     NoteCreatorComponent,
     NoteEditorComponent,
   ],
-  imports: [CommonModule, NotesRoutingModule, ButtonModule, CardModule],
+  imports: [
+    CommonModule,
+    NotesRoutingModule,
+    ButtonModule,
+    CardModule,
+    ReactiveFormsModule,
+  ],
   providers: [NotesService],
 })
 export class NotesModule {}

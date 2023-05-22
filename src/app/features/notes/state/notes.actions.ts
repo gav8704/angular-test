@@ -5,7 +5,7 @@ export const NotesActions = createActionGroup({
   source: 'Notes',
   events: {
     // Entities
-    'Add Note': props<Note>(),
+    'Add Note': props<{ note: Note }>(),
     'Remove Note': props<{ noteId: string }>(),
     'Change Note': props<Note>(),
     'Retrieved Notes': props<{ noteList: ReadonlyArray<Note> }>(),

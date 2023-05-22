@@ -6,6 +6,7 @@
     type="text"
     [defaultValue]="(searchValue$ | async) || ''"
     (keyup)="handleSearchInputChange($event)"
+    class="notes-toolbar__search-input"
   />
   <button nc-button ncType="link">Сортировать по</button>
 </div>

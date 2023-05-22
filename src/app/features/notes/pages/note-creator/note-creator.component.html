@@ -1,1 +1,24 @@
-<p>note-creator works!</p>
+<form [formGroup]="createNoteForm" class="form">
+  <div style="text-align: right">
+    <button (click)="createNote()" [disabled]="!isFormValid" nc-button>
+      Создать
+    </button>
+  </div>
+
+  <!-- Title control -->
+  <div class="form-item">
+    <label for="title">Title</label>
+    <input formControlName="title" id="title" type="text" />
+  </div>
+
+  <!-- Description control -->
+  <div class="form-item">
+    <label for="description">Description</label>
+    <textarea
+      formControlName="description"
+      name="description"
+      id="description"
+      rows="10"
+    ></textarea>
+  </div>
+</form>

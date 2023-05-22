@@ -1,0 +1,9 @@
+@import "../../../../styles/utilities/mixins.scss";
+
+.notes-toolbar {
+  row-gap: 15px;
+}
+
+.notes-toolbar__search-input {
+  @include input-base;
+}

@@ -2,15 +2,21 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { NotesActions } from '../state/notes.actions';
 import { Note } from '../models';
+import { LocalStorageService } from '../../../services/local-storage.service';
+import { RoutingService } from '../../../services/routing.service';
 
 export const notesStorageKey = 'noteList';
 
 @Injectable()
 export class NotesService {
-  constructor(private store: Store) {}
+  constructor(
+    private readonly store: Store,
+    private readonly localStorageService: LocalStorageService,
+    private readonly routingService: RoutingService
+  ) {}
 
   /** Getting note list from local storage */
-  getNotes() {
+  getNotes(): void {
     const notesStr = localStorage.getItem(notesStorageKey);
     if (!notesStr) {
       return;
@@ -20,5 +26,11 @@ export class NotesService {
     this.store.dispatch(
       NotesActions.retrievedNotes({ noteList: notes as Note[] })
     );
+  }
+
+  addNote(note: Note): void {
+    this.localStorageService.addItem<Note>(notesStorageKey, note);
+    this.store.dispatch(NotesActions.addNote({ note }));
+    this.routingService.goToNoteEditor(note.id);
   }
 }
