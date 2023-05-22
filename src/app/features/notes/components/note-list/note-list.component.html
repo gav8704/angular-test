@@ -1,0 +1,7 @@
+<div class="notes-list flex-column">
+  <ng-container *ngFor="let note of noteList$ | async">
+    <nc-card (click)="editNote(note.id)" [ncTitle]="note.title">
+      {{ note.description }}
+    </nc-card>
+  </ng-container>
+</div>

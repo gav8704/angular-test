@@ -1,0 +1,28 @@
+@import "../../../../styles/utilities/colors.scss";
+@import "../../../../styles/utilities/variables.scss";
+@import "../../../../styles/base/shared.scss";
+
+.notes-container {
+  @extend .flex-row;
+  @extend .w-100;
+  @extend .h-100;
+
+  column-gap: 20px;
+}
+
+.notes-aside {
+  flex: 30% 0 0;
+  max-width: 300px;
+  row-gap: 50px;
+}
+
+.notes-main {
+  flex-grow: 1;
+}
+
+.notes-aside,
+.notes-main {
+  background: $white;
+  padding: 15px;
+  border-radius: $border-radius-base;
+}

@@ -1,1 +1,10 @@
-<p>notes-display works!</p>
+<div class="notes-container">
+  <aside class="notes-aside flex-column">
+    <app-notes-toolbar></app-notes-toolbar>
+    <app-note-list></app-note-list>
+  </aside>
+  <section class="notes-main">
+    <!-- Creator or Editor -->
+    <router-outlet></router-outlet>
+  </section>
+</div>

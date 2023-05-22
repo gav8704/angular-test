@@ -9,11 +9,19 @@
   border: 1px solid $grey-dark;
   border-radius: $border-radius-base;
   overflow: hidden;
+  cursor: pointer;
+  transition: $transition-duration-base;
+
+  &:hover {
+    background-color: $grey;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  }
 }
 
 .nc-card__header {
   padding: $card-header-padding;
   text-align: center;
+  border-bottom: 1px solid $grey-dark;
 
   h3 {
     @extend .ellipsis;
