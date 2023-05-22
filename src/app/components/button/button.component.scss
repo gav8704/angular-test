@@ -18,16 +18,23 @@
   color: $white;
   cursor: pointer;
   transition: background $transition-duration-base;
+
+  &:disabled {
+    background: $grey-light;
+    color: $grey-dark;
+    border-color: $grey-dark;
+    cursor: not-allowed;
+  }
 }
 
 .nc-btn-primary {
   background: $primary;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: $primary-hover;
   }
 
-  &:active {
+  &:active:not(:disabled) {
     background: $primary-active;
   }
 }
@@ -35,11 +42,11 @@
 .nc-btn-dangerous {
   background: $dangerous;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: $dangerous-hover;
   }
 
-  &:active {
+  &:active:not(:disabled) {
     background: $dangerous-active;
   }
 }
@@ -48,11 +55,11 @@
   background: $white;
   color: $black;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: $grey-light;
   }
 
-  &:active {
+  &:active:not(:disabled) {
     background: $grey-dark;
   }
 }

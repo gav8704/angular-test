@@ -3,6 +3,18 @@
 
 @mixin input-base {
   padding: 4px 10px;
-  border: 1px solid $grey-dark;
+  border: 1px solid $grey-light;
   border-radius: $border-radius-base;
+
+  &:hover {
+    border-color: $grey-dark;
+  }
+
+  &:focus {
+    box-shadow: 0 0 5px $primary-active;
+  }
+
+  &.ng-invalid.ng-touched:not(form):not(:hover) {
+    border-color: $dangerous-active;
+  }
 }
