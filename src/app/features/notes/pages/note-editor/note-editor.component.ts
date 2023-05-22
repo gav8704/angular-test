@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Note, NoteForm } from '../../models';
 import { tap, switchMap, BehaviorSubject } from 'rxjs';
@@ -12,6 +12,7 @@ import { notEmptyStringRegExp } from '../../../../constants/validators-patterns'
   selector: 'app-note-editor',
   templateUrl: './note-editor.component.html',
   styleUrls: ['./note-editor.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NoteEditorComponent {
   note$ = new BehaviorSubject<Note | undefined>(undefined);

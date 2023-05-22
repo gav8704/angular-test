@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 type ncButtonType = 'primary' | 'dangerous' | 'link';
 
@@ -7,6 +7,7 @@ type ncButtonType = 'primary' | 'dangerous' | 'link';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'nc-btn',
     '[class.nc-btn-primary]': `ncType === 'primary'`,

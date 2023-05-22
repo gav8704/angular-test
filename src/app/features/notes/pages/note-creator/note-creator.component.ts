@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { isEmptyString } from '../../../../helpers';
 import { Note, NoteForm } from '../../models';
@@ -9,6 +9,7 @@ import { notEmptyStringRegExp } from '../../../../constants/validators-patterns'
   selector: 'app-note-creator',
   templateUrl: './note-creator.component.html',
   styleUrls: ['./note-creator.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NoteCreatorComponent implements OnInit {
   noteForm!: FormGroup;
