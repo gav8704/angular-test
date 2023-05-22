@@ -11,8 +11,8 @@
 
 .note-card__button-layer {
   display: flex;
-  justify-content: end;
-  align-items: start;
+  justify-content: flex-end;
+  align-items: flex-start;
   position: absolute;
   top: 0;
   bottom: 0;
